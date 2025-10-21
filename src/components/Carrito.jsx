@@ -26,16 +26,16 @@ function Carrito() {
 
   return (
     <div className="p-4">
-      <h2 className="text-2xl font-semibold mb-4">Tu carrito</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-100">Tu carrito</h2>
       {items.length === 0 ? (
-        <p className="text-gray-500">No hay productos en el carrito.</p>
+        <p className="text-gray-500 dark:text-gray-400">No hay productos en el carrito.</p>
       ) : (
         <div className="grid gap-4">
           {items.map(item => (
-            <div key={item.id} className="bg-white shadow rounded p-4 flex justify-between items-center">
+            <div key={item.id} className="bg-white dark:bg-gray-800 shadow rounded p-4 flex justify-between items-center">
               <div>
-                <h3 className="font-bold">{item.producto.nombre}</h3>
-                <p className="text-gray-600">Cantidad: {item.cantidad}</p>
+                <h3 className="font-bold text-gray-800 dark:text-gray-100">{item.producto.nombre}</h3>
+                <p className="text-gray-600 dark:text-gray-300">Cantidad: {item.cantidad}</p>
               </div>
               <button
                 onClick={() => eliminarItem(item.id)}
