@@ -8,26 +8,20 @@ import AgregarProducto from './components/AgregarProducto';
 import ModoOscuroToggle from './components/ModoOscuroToggle';
 import reactLogo from './assets/react.svg';
 import AuthForm from './components/AuthForm';
-
-
- 
+import LogoutButton from './components/LogoutButton'; // Opcional si quieres cerrar sesión
 
 function App() {
-  const [count, setCount] = useState(0);
   const [seccion, setSeccion] = useState('productos');
   const [modoOscuro, setModoOscuro] = useState(false);
 
-  // Aplica o quita la clase 'dark' en <html>
   useEffect(() => {
     document.documentElement.classList.toggle('dark', modoOscuro);
   }, [modoOscuro]);
 
-
-
-
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white transition-colors duration-300">
-      {/* Cabecera con logos y contador */}
+      
+      {/* Cabecera */}
       <header className="flex flex-col items-center justify-center py-6">
         <div className="flex gap-4 mb-4">
           <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
@@ -37,30 +31,15 @@ function App() {
             <img src={reactLogo} className="w-16 hover:scale-110 transition" alt="React logo" />
           </a>
         </div>
-        <h1 className="text-8xl font-bold text-blue-600 dark:text-yellow-400">Vite + React + Tailwind</h1>
-        {/*<div className="bg-white dark:bg-gray-800 shadow-md rounded p-4 mt-4 text-center">
-          <button
-            //onClick={() => setCount(count + 1)}
-            //className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-          >
-            // count is {count}
-          </button>
-        </div>*/}
+        <h1 className="text-8xl font-bold text-blue-600 dark:text-yellow-400">
+          Vite + React + Tailwind
+        </h1>
       </header>
-
-
-
-
 
       {/* Botón de modo oscuro */}
       <div className="flex justify-end px-4">
-       
         <ModoOscuroToggle modoOscuro={modoOscuro} setModoOscuro={setModoOscuro} />
       </div>
-
-
-
-
 
       {/* Navegación */}
       <nav className="flex justify-center gap-4 mb-6 flex-wrap">
@@ -76,14 +55,14 @@ function App() {
         <button onClick={() => setSeccion('historial')} className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
           Historial
         </button>
+        {/* Botón opcional para cerrar sesión */}
+        <LogoutButton />
       </nav>
 
-{/* LOGIN O REGISTRO */}
-<div className="min-h-screen bg-gray-100 dark:bg-gray-900">
-      <AuthForm />
-    </div>
-
-
+      {/* Login o registro */}
+      <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
+        <AuthForm />
+      </div>
 
       {/* Secciones dinámicas */}
       <main className="p-4">
@@ -113,7 +92,7 @@ function App() {
         )}
       </main>
 
-      {/* Formulario de agregar producto */}
+      {/* Formulario para agregar producto */}
       <main className="p-4">
         <AgregarProducto />
       </main>
