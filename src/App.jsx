@@ -37,15 +37,15 @@ function App() {
             <img src={reactLogo} className="w-16 hover:scale-110 transition" alt="React logo" />
           </a>
         </div>
-        <h1 className="text-3xl font-bold text-blue-600 dark:text-yellow-400">Vite + React + Tailwind</h1>
-        <div className="bg-white dark:bg-gray-800 shadow-md rounded p-4 mt-4 text-center">
+        <h1 className="text-8xl font-bold text-blue-600 dark:text-yellow-400">Vite + React + Tailwind</h1>
+        {/*<div className="bg-white dark:bg-gray-800 shadow-md rounded p-4 mt-4 text-center">
           <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
+            //onClick={() => setCount(count + 1)}
+            //className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
           >
-            count is {count}
+            // count is {count}
           </button>
-        </div>
+        </div>*/}
       </header>
 
 
