@@ -1,21 +1,34 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import api from '../api';
 import { AuthContext } from '../context/AuthContext';
 
 function LogoutButton() {
-  const { setToken } = useContext(AuthContext);
+  const { token, setToken } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const cerrarSesion = () => {
+    if (!token || token.length < 10) {
+      alert('Token inválido o sesión expirada');
+      return;
+    }
+
     api.post('/logout', {}, {
-      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+      headers: { Authorization: `Bearer ${token}` }
     })
     .then(() => {
       localStorage.removeItem('token');
       setToken(null);
-      alert('Sesión cerrada');
+      alert('Sesión cerrada correctamente');
+      navigate('/');
     })
-    .catch(err => console.error('Error al cerrar sesión', err));
+    .catch(err => {
+      console.error('Error al cerrar sesión', err);
+      alert('No se pudo cerrar sesión. Intenta de nuevo.');
+    });
   };
+
+  if (!token) return null;
 
   return (
     <button

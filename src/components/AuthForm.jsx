@@ -19,7 +19,7 @@ function AuthForm() {
 
     try {
       const res = await axios.post(`http://localhost:8000${endpoint}`, payload);
-      const token = res.data.token;
+      const token = res.data.access_token;
       localStorage.setItem('token', token);
       setToken(token);
       setMensaje(modo === 'login' ? 'Sesión iniciada' : 'Registro exitoso');
