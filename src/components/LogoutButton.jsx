@@ -24,8 +24,12 @@ function LogoutButton() {
     })
     .catch(err => {
       console.error('Error al cerrar sesión', err);
-      alert('No se pudo cerrar sesión. Intenta de nuevo.');
-    });
+      // Aun así limpiamos el token
+  localStorage.removeItem('token');
+  setToken(null);
+  alert('Sesión cerrada localmente');
+  navigate('/');
+});
   };
 
   if (!token) return null;
