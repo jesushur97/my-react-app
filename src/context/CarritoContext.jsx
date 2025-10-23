@@ -9,7 +9,8 @@ export function CarritoProvider({ children }) {
   const cargarCarrito = async () => {
     try {
       const res = await api.get('/carrito');
-      setItems(res.data);
+      const filtrados = res.data.filter(item => item.producto); // ← solo ítems válidos
+      setItems(filtrados);
     } catch (err) {
       console.error('Error al cargar carrito', err);
     }
