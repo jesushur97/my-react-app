@@ -19,6 +19,9 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 
+
+
+
 # TIENDA WEB - REACT + VITE + LARAVEL 
 
 Aplicación desarrollada como parte de prácticas DAW, con frontend en React + Vite y backend en Laravel. Incluye autenticación JWT,protección de rutas,modo oscuro,gestión de productos,carrito de compras y confirmación de pedidos.
@@ -106,4 +109,4 @@ Contacto: jesushur097@gmail.com
 
 # LICENCIA
 
-Este proyecto está bajo licencia MIT. Puedes adaptarlo libremente para uso educativo o comercial.
+Este proyecto está bajo licencia MIT. Puedes adaptarlo libremente para uso educativo.
